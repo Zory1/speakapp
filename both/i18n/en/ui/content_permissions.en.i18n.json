@@ -1,0 +1,11 @@
+{
+	"spec_content_permissions":"Specify content permissions",
+	"label_img_perm":"ID of image you wish to add permissions for",
+	"img_id":"ID of image",
+	"vis_owners" : "Visible to owners",
+	"vis_family" : "Visible to family",
+	"vis_offspring" : "Visible to offsprings",
+	"vis_friends" : "Visible to family friends",
+	"vis_public" : "Visible to anyone (public)",
+	"upd_permissions" : "Update Permissions"
+}

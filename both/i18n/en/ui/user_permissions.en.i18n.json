@@ -1,0 +1,11 @@
+{
+	"specify_user_perm" : "Specify user global permissions",
+	"uid" : "User ID",
+	"friend" : "Family friend",
+	"family" : "Family member",
+	"offspring" : "Offspring",
+	"upd_roles" : "Update roles",
+	"fam_members" : "Family members",
+	"fam_friends" : "Family friends",
+	"offsprings" : "Offsprings"
+}

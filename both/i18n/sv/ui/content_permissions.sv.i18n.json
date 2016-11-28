@@ -1,0 +1,11 @@
+{
+	"spec_content_permissions":"Specificera innehålls behörigheter",
+	"label_img_perm":"ID för bild som du vill lägga till behörigheter för",
+	"img_id":"ID bild",
+	"vis_owners" : "Synlig för ägare",
+	"vis_family" : "Synlig för familjen",
+	"vis_offspring" : "Synlig för avkommor",
+	"vis_friends" : "Synlig för familjens vänner",
+	"vis_public" : "Visas för alla (offentliga)",
+	"upd_permissions" : "Uppdatera Behörigheter"
+}

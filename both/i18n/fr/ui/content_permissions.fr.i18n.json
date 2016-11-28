@@ -1,0 +1,11 @@
+{
+	"spec_content_permissions":"Spécifiez les autorisations de contenu",
+	"label_img_perm":"ID de l'image que vous souhaitez ajouter des autorisations pour",
+	"img_id":"ID de l'image",
+	"vis_owners" : "Visible aux propriétaires",
+	"vis_family" : "Visible à la famille",
+	"vis_offspring" : "Visible descendants",
+	"vis_friends" : "Visible à des amis de la famille",
+	"vis_public" : "Visible par tous (public)",
+	"upd_permissions" : "Mettre à jour les autorisations"
+}

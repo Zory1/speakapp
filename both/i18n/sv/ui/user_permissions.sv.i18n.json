@@ -1,0 +1,11 @@
+{
+	"specify_user_perm" : "Ange användar globala behörigheter",
+	"uid" : "Användar ID",
+	"friend" : "Vän till familjen",
+	"family" : "Familjemedlem",
+	"offspring" : "Avkomma",
+	"upd_roles" : "Uppdaterings roller",
+	"fam_members" : "Familjemedlemmar",
+	"fam_friends" : "Familjevänner",
+	"offsprings" : "Avkommor"
+}

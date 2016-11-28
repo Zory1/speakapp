@@ -1,0 +1,11 @@
+{
+	"specify_user_perm" : "Spécifiez les autorisations globales des utilisateurs",
+	"uid" : "ID d'utilisateur",
+	"friend" : "Ami de la famille",
+	"family" : "Membre de la famille",
+	"offspring" : "Progéniture",
+	"upd_roles" : "Rôles de mise à jour",
+	"fam_members" : "Membres de la famille",
+	"fam_friends" : "Amis de la famille",
+	"offsprings" : "Les progénitures"
+}

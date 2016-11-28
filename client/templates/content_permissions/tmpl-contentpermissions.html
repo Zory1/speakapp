@@ -1,0 +1,52 @@
+				<template name="contentpermissions">
+					<div class="panel panel-default" id="txtAdd" >
+	  					<div class="panel-heading">{{_ "spec_content_permissions"}}</div>
+	  					<div class="panel-body">				
+							<form>
+								<div class="form-group">
+
+									<div class="form-group">
+								    	<label for="oneImage" class="sr-only">{{_ "label_img_perm"}}</label>
+								    	<input type="text" class="form-control" id="oneImage" placeholder={{_ "img_id"}}>
+								    </div>
+
+									<div class="row">
+										  <div class="checkbox">
+										    <label>
+										      <input class="contentPerm" type="checkbox" value="owner"> {{_ "vis_owners"}}
+										    </label>
+										  </div>
+
+										  <div class="checkbox">
+										    <label>
+										      <input class="contentPerm"  type="checkbox" value="family"> {{_ "vis_family"}}
+										    </label>
+										  </div>
+
+										  <div class="checkbox">
+										    <label>
+										      <input class="contentPerm"  type="checkbox" value="offspring"> {{_ "vis_offspring"}}
+										    </label>
+										  </div>
+
+										  <div class="checkbox">
+										    <label>
+										      <input class="contentPerm"  type="checkbox" value="friend"> {{_ "vis_friends"}}
+										    </label>
+										  </div>
+										
+										  <div class="checkbox">
+										    <label>
+										      <input class="contentPerm"  type="checkbox" value="public"> {{_ "vis_public"}}
+										    </label>
+										  </div>
+
+									</div>
+
+								</div>
+								<button id="contentPermissions" type="button" class="btn btn-info">{{_ "upd_permissions"}}</button>
+							</form>
+		  					
+						</div>
+					</div>
+				</template>

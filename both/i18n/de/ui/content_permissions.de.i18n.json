@@ -1,0 +1,11 @@
+{
+	"spec_content_permissions":"Geben Sie Inhalt Berechtigungen",
+	"label_img_perm":"ID des Bildes möchten Sie Berechtigungen hinzufügen für",
+	"img_id":"ID des Bildes",
+	"vis_owners" : "Sichtbar für Besitzer",
+	"vis_family" : "Sichtbar für Familie",
+	"vis_offspring" : "Sichtbar für Nachzuchten",
+	"vis_friends" : "Sichtbar für Freunde der Familie",
+	"vis_public" : "Sichtbar für alle Personen (öffentlich)",
+	"upd_permissions" : "Berechtigungen aktualisieren"
+}

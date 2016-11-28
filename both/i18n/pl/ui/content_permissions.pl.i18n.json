@@ -1,0 +1,11 @@
+{
+	"spec_content_permissions":"Określanie uprawnień treści",
+	"label_img_perm":"ID dla obrazu chcesz dodać uprawnienia",
+	"img_id":"ID obrazu",
+	"vis_owners" : "Widoczne dla właścicieli",
+	"vis_family" : "Widoczne dla rodziny",
+	"vis_offspring" : "Widoczne dla pociech",
+	"vis_friends" : "Widoczne dla przyjaciół rodziny",
+	"vis_public" : "Widoczny dla wszystkich (publiczny)",
+	"upd_permissions" : "Uprawnienia Aktualizuj"
+}

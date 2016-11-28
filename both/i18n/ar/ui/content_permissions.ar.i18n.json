@@ -1,0 +1,11 @@
+{
+	"spec_content_permissions":"تعيين أذونات المحتوى",
+	"label_img_perm":"معرف الصورة التي ترغب في إضافة أذونات",
+	"img_id":"معرف صورة",
+	"vis_owners" : "مرئية للمالكي",
+	"vis_family" : "مرئية للعائلة",
+	"vis_offspring" : "مرئية للالذريات",
+	"vis_friends" : "مرئي لأصدقاء العائلة",
+	"vis_public" : "مرئية لأي شخص (الجمهور)",
+	"upd_permissions" : "ضوابط التحديث"
+}
