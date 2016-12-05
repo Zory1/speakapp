@@ -1,4 +1,9 @@
-// client and server code
-Images = new Mongo.Collection('images');
-UsersInRoles = new Mongo.Collection('users_in_roles');
-//Family = new Mongo.Collection('users_family_member');
+try{
+	// client and server code
+	Images = new Mongo.Collection('images');	
+	UsersInRoles = new Mongo.Collection('users_in_roles');
+	Logs = new Mongo.Collection("logs");
+} catch(err) {
+	console.error('Could not initiate collections in speakapp.both.collections.model');
+	console.warn(err);
+}

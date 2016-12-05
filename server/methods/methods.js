@@ -60,6 +60,44 @@ Meteor.methods({
         }
       }
   	Roles.setUserRoles(userId, ['Public'], usergroup);
+  },
+
+  addImage: function(txtNode){
+      try{
+        Images.insert({
+        owner: Meteor.userId(),
+        text: txtNode});
+      } catch (e){
+        console.log(e);
+        console.log("oh oh something bad happen in addImagey");
+      }
+  },
+  addLog: function(typeIn, originIn, errorIn, reasonIn, detailsIn){
+    try{
+        var types = {"e": "error", "i":"info", "t":"trace", "h":"history", "s":"success"};
+        var origins = {"s":"server", "cl":"client", "cr":"cordova"};
+        var type = origins[typeIn];
+        var origin = types[originIn];
+
+          var timestamp = moment().unix();
+          var timestampFormat = moment().format();
+          if(!reasonIn) {var reason = "n/a";} else { var reason = reasonIn;}
+          if(!details){var details = "n/a";} else { var details = details;}
+
+          Logs.insert({
+            timestamp: timestamp,
+            formatedTime: timestampFormat,
+            type: type,
+            origin: origin,
+            userId: this.userId,
+            error: errorIn,
+            reason: reason,
+            details: details
+          });
+        } catch(e){
+            console.log(e);
+            throw new Meteor.Error("server.methods.addLog", "Did not add log entry.", "");
+        }
   }
   
 });
