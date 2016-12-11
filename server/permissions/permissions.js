@@ -1,4 +1,4 @@
-Images.allow({
+/*Images.allow({
 	insert: function(userId, fields){
 		return(userId); //make sure user is logged in.
 	},
@@ -14,7 +14,7 @@ UsersInRoles.allow({
 	 update: function (userId, doc, fields, modifier) {
     return doc.group === userId;
   }
-})
+})*/
 
 Meteor.users.deny({
   update: function(userId, doc, fields, modifier) {

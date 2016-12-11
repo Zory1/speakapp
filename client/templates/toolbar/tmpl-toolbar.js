@@ -1,11 +1,11 @@
 Template.toolbar.events({
 	'click #btnAdd' : function(e){
-		console.log("Toolbar was clicked");
+		//console.log("Toolbar was clicked");
 		addImageToDB();
 	},
 	'keypress #txtAdd' : function(e){
 		if(e.keyCode!=13) return;
-		addImage();
+		addImageToDB();
 	}
 });
 
@@ -14,32 +14,27 @@ function addImageToDB(){
 	try{
 		var txtNode = $('#txtAdd');
 		if(!txtNode || !txtNode.val() || !Meteor.userId()) {
-			console.log("Must be logged in to add image.");
+			var msg = "Must be logged in to add image.";
+			var ename = "client.templates.toolbar.addImageToDB.notAuthorized.failed";
+			//errorsToDisplay.push(msg);
+			//console.log("Must be logged in to add image.");
+        	lg("e", "cl", {error: ecode, reason: msg, details:""}, "");
 			return;
 		} 
 	} catch(error){
-		if (isKnownError(error.reason)) {
-	    		errosToDisplay.push(error.reason);
-	  		} else {
-	  			var msg = "An unknown error occurred while extracting your image input.";
-	    		errorsToDisplay.push(error);
-			}
+		
 	}
 	Meteor.call('addImage', txtNode.val(), function(error, result){
 		if(error){
-			if (isKnownError(error.reason)) {
-	    		errosToDisplay.push(error.reason);
-	  		} else {
-	  			var msg = "An unknown error occurred while adding your image to database.";
-	    		errorsToDisplay.push(error);
-			}
+			var msg = "Failed to add image to db.";
+			var ecode = "client.templates.toolbar.addImageToDB.failed";
+			lg("e", "cl", {error: ecode, reason: msg, details:""}, "");
 		} else {
 			var msg = "Successfully saved image.";
-			lg("s", "s", {"error":"client.templates.tmpl_toolbar.addImageToDB.success", "reason":"", "details":""});
-	    	successToDisplay.push(msg);
+			lg("s", "s", {"error":"client.templates.tmpl_toolbar.addImageToDB.success", "reason":msg, "details":""},"");
+	    	
 	  }
-		}
-	);
+		});
 
 	txtNode.val('');
 }

@@ -1,7 +1,7 @@
 Meteor.startup(function(){
 /* start setting up env variables to do with hosting */    
-
-var theURL = "http://3abb601f.ngrok.io";
+try{
+  var theURL = "http://3abb601f.ngrok.io";
 
     if (process.env.NODE_ENV === "development") {
 
@@ -32,7 +32,13 @@ if(Meteor.isCordova){
 
     var pictureSource=navigator.camera.PictureSourceType;
     var destinationType=navigator.camera.DestinationType;
-  }  
+  }   
+} catch(e){
+    var msg = "Error happen when starting up server.";
+    var ecode = "server.methods.startup.failed";
+    lg("e", "s", {error: ecode, reason: msg, details:""}, "");
+}
+ 
     //var pictureSource=navigator.camera.PictureSourceType;
     //var destinationType=navigator.camera.DestinationType;
 //TODO: create method to make user an owner of her content (owner role for this id)
