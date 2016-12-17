@@ -1,0 +1,35 @@
+<template name="logs">
+	<div class="container">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Timestamp</th>
+					<th>FormatedTime</th>
+					<th>Type</th>
+					<th>Origin</th>
+					<th>UserId</th>
+					<th>Path</th>
+					<th>Description</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each logEntries}}
+					<tr class={{type}}>	
+						<td>{{_id}}</td>
+						<td>{{timestamp}}</td>
+						<td>{{formatedTime}}</td>
+						<td>{{type}}</td>
+						<td>{{origin}}</td>
+						<td>{{userId}}</td>
+						<td>{{path}}</td>
+						<td>{{description}}</td>
+						<td>{{details}}</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+		
+	</div>
+</template>

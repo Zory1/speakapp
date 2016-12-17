@@ -1,4 +1,3 @@
-Meteor.startup(function(){
 	
 	errorsToDisplay = []; // empty those once displayed
 	successToDisplay =[]; // empty those once displayed
@@ -42,4 +41,3 @@ Meteor.startup(function(){
 		});
 
 }
-});

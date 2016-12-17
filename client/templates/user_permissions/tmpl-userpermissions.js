@@ -1,4 +1,6 @@
+
 //js for users global permissions within currently logged in user's content
+if(typeof lg == "undefined"){import "../../../both/log_before_meteor_startup.js";}
 Template.userpermissions.helpers({
 	users_family_member: function(){
 		try{
@@ -76,15 +78,28 @@ Template.userpermissions.events({
 });
 
 function addUserPermissions(){
-	getUserIdAndPermit($('#user_id').val().trim());
+	try{
+		if(!Meteor.userId()){
+			var msg = "Must be logged in to update user role.";
+			var ename = "client.templates.tmpl-userpermissions.addUserPermissions.notAuthorized.failed";
+	        lg("e", "cl", {error: ename, reason: msg, details:""}, "");
+			return;
+		}
+		getUserIdAndPermit($('#user_id').val().trim());
+	} catch(error){
+			var msg = "Failled to update user role.";
+			var ename = "client.templates.tmpl-userpermissions.addUserPermissions.failed";
+	        lg("e", "cl", {error: ename, reason: msg, details:""}, "");
+	}
 }
 
 function getUserIdAndPermit(email){
 	Meteor.call('returnIdByEmail', email, function(error, result){
 			  if(error){
-					var msg = "Failed to return user id by email.";
+					var msg = "Failed to return user id by email " + email + ". Role update operation has not completed.";
 					var ecode = "client.templates.user_permissions.tmpl-userpermissions.getUserIdAndPermit.returnIdAndPermit.failed";
 		        	lg("e", "cl", {error: ecode, reason: msg, details:""}, "");
+		        	$('#user_id').val("");
 			  } else {
 			  	//console.log("Got result from getUserIdAndPermit and here it is: "+result);
 			  	var msg = "Retrieved user id for email " + email;
@@ -103,11 +118,13 @@ function getUserIdAndPermit(email){
 					    	var msg = "Failed to add user to role.";
 							var ecode = "client.templates.user_permissions.tmpl-userpermissions.getUserIdAndPermit.addUserToRole.failed";
 		        			lg("e", "cl", {error: ecode, reason: msg, details:""}, "");
+		        			$('#user_id').val("");
 					    return;
 					  }
 						  	var msg = "Successfully added role " + permValue + " to the user " + permUserId;
 						  	var ecode = "client.templates.user_permissions.tmpl-userpermissions.getUserIdAndPermit.success";
 						  	lg("s", "cl", {error: ecode, reason: msg, details:""}, "");
+						  	$('#user_id').val("");
 					});
 			  }
 			});
@@ -123,7 +140,7 @@ function assignToPublic(userId){
 			  } else {
 			  	var msg = "User "+ userId + "was assigned  public role.";
 				var ecode = "client.templates.user_permissions.tmpl-userpermissions.assignToPublic.success";
-				lg("e", "cl", {error: ecode, reason: msg, details:""}, "");
+				lg("s", "cl", {error: ecode, reason: msg, details:""}, "");
 			  }
 	})
 }

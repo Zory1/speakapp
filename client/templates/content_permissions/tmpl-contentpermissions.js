@@ -1,4 +1,5 @@
 //js for content permissions that currently logged in user sets for her content
+
 Template.contentpermissions.events({
 	'click #contentPermissions' : function(){
 		addContentPermissions();
@@ -23,18 +24,22 @@ function addContentPermissions(){
 			});
 			
 			//console.log("Values: " + vals + ", image to update: " + imgID);
-			Images.update( imgID, {
-				$set: { visibility: vals}
+			Meteor.call("updateImageVisibility", imgID,vals,function(error,result){
+				if(error){
+					var msg = "Failed to update image visibility.";
+					var ecode = "client.templates.toolbar.updateImageVisibility.failed";
+					lg("e", "cl", {error: ecode, reason: msg, details:""}, "");
+				} else {
+					var msg = "Successfully updated image visibility.";
+					lg("t", "cl", {"error":"client.templates.tmpl_toolbar.addImageToDB.success", "reason":msg, "details":""},"");	
+				}
 			});
 
 			$('#oneImage').val("");
 			permValues.each(function(i){
 			$(this).attr('checked', false);
-
-			var msg = "Added content permissions.";
-			var ecode = "client.templates.content_permissions.events.addContentPermissions.success";
-			lg("s", "cl", {error: ecode, reason: msg, details:""}, "");
-			});	
+		});
+	
 	}catch(e){
 			var msg = "Failed to add content permissions.";
 			var ecode = "client.templates.content_permissions.events.addContentPermissions.failed";

@@ -1,6 +1,5 @@
 if(Meteor.isCordova){
 //js to make a picture using a camera or retrieve from file syste
-
 Template.camera.events({
 	'click #take_picture' : function(){
 		if(!Meteor.userId()){

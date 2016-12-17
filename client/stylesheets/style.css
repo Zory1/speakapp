@@ -6,3 +6,19 @@
   cursor: pointer;
 }
 
+table tr.error {
+	background-color: #FFA9A9;
+}
+
+table tr.info {
+	background-color: #CAD6F1;
+}
+table tr.trace {
+	background-color: #82C5C5;
+}
+table tr.history {
+	background-color: #FFD0A9;
+}
+table tr.success {
+	background-color: #95E295;
+}

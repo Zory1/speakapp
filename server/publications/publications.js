@@ -1,3 +1,4 @@
+
 // general server-side code
 Meteor.publish('images', function(){
 	try {

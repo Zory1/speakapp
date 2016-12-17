@@ -1,7 +1,13 @@
+
 Meteor.methods({
   
   addUserToRole: function (userId, addrole, partition) {
       try{
+          if(!Meteor.userId()){
+          var msg = "Must be logged in to update user role.";
+          var ename = "server.methods.addUserToRole.notAuthorized.failed";
+          throw Meteor.Error(ename, msg, "");
+        }
           if (this.userId === userId) throw new Meteor.Error('unauthorized', "You can not update your own role. Unauthorized.");
           var user_seen = false;
           var uemail = Meteor.users.findOne({"_id": userId }).emails[0].address;
@@ -63,6 +69,12 @@ Meteor.methods({
 
   assignToPublicUser: function(userId, usergroup){
     try{
+          if(!Meteor.userId()){
+          var msg = "Must be logged in update user role.";
+          var ename = "server.methods.assignToPublicUser.notAuthorized.failed";
+          throw Meteor.Error(ename, msg, "");
+        }
+
       var allroles = UsersInRoles.find({_id: userId}).fetch()[0].roles;
       for(var i=0; i < allroles.length; i++){
         if(typeof allroles[i][usergroup] != "undefined"){
@@ -86,6 +98,11 @@ Meteor.methods({
 
   addImage: function(txtNode){
       try{
+        if(!Meteor.userId()){
+          var msg = "Must be logged in to add image.";
+          var ename = "server.methods.addImage.notAuthorized.failed";
+          throw Meteor.Error(ename, msg, "");
+        }
         Images.insert({
         owner: Meteor.userId(),
         text: txtNode});
@@ -97,13 +114,43 @@ Meteor.methods({
         throw new Meteor.Error(ecode, msg, ""); 
       }
   },
+  updateImageVisibility: function(imgId, vals){
+    try{
+      if(!Meteor.userId()){
+        var msg = "Must be logged in to update image visibility.";
+          var ename = "server.methods.updateImageVisibility.notAuthorized.failed";
+          lg("e","s",{error:ename, reason:msg, details:""},"");
+          throw Meteor.Error(ename, msg, "");
+      }
+
+      if(Images.find({_id:imgId}).fetch().length == 0){
+          var msg = "Image with this id was not found.";
+          var ename = "server.methods.updateImageVisibility.notFound.failed";
+          lg("e","s",{error:ename, reason:msg, details:""},"");
+          throw Meteor.Error(ename, msg, "");
+      }
+
+      Images.update( imgId, {
+        $set: { visibility: vals}
+      });
+      var msg = "Updated image visibility.";
+      var ename = "server.methods.updateImageVisibility.success";
+      lg("t","s",{error:ename, reason:msg, details:""},"");
+    }catch(e){
+        var msg = "Failed to update image visibility.";
+        var ecode = "server.methods.updateImageVisibility.failed";
+        lg("e", "s", {error: ecode, reason: msg, details:e}, "");
+        throw new Meteor.Error(ecode, msg, ""); 
+    }
+  },
 
   addLog: function(typeIn, originIn, errorIn, reasonIn, detailsIn){
     try{
         var types = {"e": "error", "i":"info", "t":"trace", "h":"history", "s":"success"};
         var origins = {"s":"server", "cl":"client", "cr":"cordova"};
-        var type = origins[typeIn];
-        var origin = types[originIn];
+        var type = types[typeIn];
+        var origin = origins[originIn];
+
 
           var timestamp = moment().unix();
           var timestampFormat = moment().format();

@@ -1,3 +1,4 @@
+
 Meteor.startup(function(){
 /* start setting up env variables to do with hosting */    
 try{
