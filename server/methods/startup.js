@@ -24,11 +24,15 @@ try{
 
 //TODO: might need to remove ngrok once in production...
 BrowserPolicy.content.allowSameOriginForAll();
-BrowserPolicy.content.allowOriginForAll("*.ngrok.io", "localhost");
+BrowserPolicy.content.allowOriginForAll("*.ngrok.io", "localhost", "fonts.gstatic.com");
 BrowserPolicy.content.allowImageOrigin("blob:");
 BrowserPolicy.content.allowImageOrigin("*");
+BrowserPolicy.content.allowInlineStyles();
+BrowserPolicy.content.allowFontOrigin("fonts.gstatic.com");
+//https://webcraftplugins.com/uploads/image-map-pro/videos/01-drawing-shapes.mp4
+BrowserPolicy.content.allowMediaOrigin("webcraftplugins.com");
 
-
+console.log('Server startup....');
 if(Meteor.isCordova){
 
     var pictureSource=navigator.camera.PictureSourceType;

@@ -1,3 +1,6 @@
+Meteor.startup(function(){
+  console.log('Client startup....');
+});
 
 Meteor.subscribe('images', {  
   onStop: function (e) {
