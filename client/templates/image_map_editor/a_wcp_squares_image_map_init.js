@@ -30,7 +30,7 @@ The usage scenario is the following (for now):
 5. Insert the previously generated HTML code
 
 */
-
+//debugger;
 ;(function ($, window, document, undefined) {
 
     var editorWindow = undefined, registeredElements = new Array(), registeredControls = new Array(), editors = new Array();
@@ -5042,7 +5042,7 @@ and a setter.
         // Editor-right
         html += '<div id="wcp-editor-right">';
         html += '</div>';
-
+//debugger;
         this.host.html(html);
 
         // Set the list items
@@ -9734,7 +9734,7 @@ and a setter.
         ]
     });
 
-    var WCPEditorSettings = {
+  /*  var WCPEditorSettings = {
         mainTabs: [
             {
                 name: 'Image Map',
@@ -9812,9 +9812,9 @@ and a setter.
         helpButton: true,
         previewToggle: true
     };
-
+*/
     // Init Editor
-    $(document).ready(function() {
+/*    $(document).ready(function() {
         $.image_map_pro_init_editor(undefined, WCPEditorSettings);
-    });
+    });*/
 })( jQuery, window, document );

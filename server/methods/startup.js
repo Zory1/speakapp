@@ -2,12 +2,12 @@
 Meteor.startup(function(){
 /* start setting up env variables to do with hosting */    
 try{
-  var theURL = "http://47ea61d6.ngrok.io";
+  var theURL = "http://ac9b3e1d.ngrok.io";
 
     if (process.env.NODE_ENV === "development") {
 
         // home
-        theURL = "http://47ea61d6.ngrok.io";
+        theURL = "http://ac9b3e1d.ngrok.io";
 
         // office
         //theURL = "http://192.168.10.30:3000";
