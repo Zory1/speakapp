@@ -1,0 +1,65 @@
+				<template name="userpermissions">
+					<div class="panel panel-default" id="txtAdd" >
+	  					<div class="panel-heading">{{_ "specify_user_perm"}}</div>
+	  					<div class="panel-body">				
+							<form>
+								<div class="form-group">
+
+
+									<div class="row">
+
+										<div class="col-lg-6">
+											<div class="input-group">
+
+											<input type="text" class="form-control" id="user_id" placeholder={{_ "uid"}}>
+												<select name="roles" id="roles" class="form-control">
+													<option value="Family friend">{{_ "friend"}}</option>
+													<option value="Family member">{{_ "family"}}</option>
+													<option value="Offspring">{{_ "offspring"}}</option>
+												</select>
+											</div>
+											<div class="container">
+											<button  id="usersPermissions" type="button" class="btn btn-info" style="margin:2px">{{_ "upd_roles"}}</button>
+										</div>
+										</div>
+
+									</div>
+
+										<div class="container">
+												<h5>{{_ "fam_members"}}:</h5>
+													{{#each users_family_member}}
+													<div class="users_family_member">
+															<button type="button" class="btn btn-info btn-xs removeRoles" style="margin:2px" id={{_id}} aria-label="Left Align">
+												  				<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+															</button>
+														{{email}}	
+													</div>
+													{{/each}}
+										</div>
+
+										<div class="container">
+											<h5>{{_ "fam_friends"}}:</h5>
+											{{#each users_family_friend}}
+												<div class="users_family_friend">
+													<button type="button" class="btn btn-info btn-xs removeRoles" style="margin:2px" id={{_id}} aria-label="Left Align">
+												  		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+													</button>
+													{{email}}</div>
+											{{/each}}
+										</div>
+
+										<div class="container">
+											<h5>{{_ "offsprings"}}:</h5>
+											{{#each users_offspring}}
+												<div class="users_offspring">
+													<button type="button" class="btn btn-info btn-xs removeRoles" style="margin:2px" id={{_id}} aria-label="Left Align">
+												  		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+													</button>
+													{{email}}</div>
+											{{/each}}
+										</div>
+								</div>
+						</form>
+					</div>
+				</div>
+			</template>
